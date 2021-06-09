@@ -15,7 +15,8 @@
                     "protocol": "tcp"
                 }
                 
-            ]
+            ],
+            "command": ["python", "app.py"]
         }
     ],
     "volumes": [],
