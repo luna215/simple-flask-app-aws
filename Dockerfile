@@ -11,5 +11,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Install application
 COPY app.py ./
 
+EXPOSE 8080
+
 # Run application
 CMD python app.py
