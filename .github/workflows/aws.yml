@@ -78,6 +78,10 @@ jobs:
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+    
+    - name: Deploy to batch-generator
+      run: |
+        aws lambda update-function-name --function batch-generator --image-uri 763215425590.dkr.ecr.us-west-1.amazonaws.com/ecs-devops-sandbox-repository:batch-runner
         
     # - name: Fill in the new image ID in the Amazon ECS task definition
     #   id: task-def
